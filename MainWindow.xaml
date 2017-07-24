@@ -1,0 +1,62 @@
+﻿<Window x:Class="zadanie_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zadanie_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="470" Width="805">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" HorizontalAlignment="Center">Produkty
+        </Label>
+        <ListBox ItemsSource="{Binding}" SelectedValuePath="Produkt" DisplayMemberPath="Name" x:Name="doproduktow"  Grid.Column="0" HorizontalAlignment="Left" Width="150" Height="400" Margin="0,20,0,0" Background="Aqua"  >
+
+
+
+        </ListBox>
+
+
+
+
+
+        <Label x:Name="poledrugie" Grid.Column="1" HorizontalAlignment="Center">Produkty Kategorie
+        </Label>
+        <ListBox  ItemsSource="{Binding}" SelectedValuePath="KAT" DisplayMemberPath="Name" Name="dopoladrugiego" Grid.Column="1" Width="150" Height="400" Margin="0,20,0,0" Background="DarkOrange"/>
+        <Label x:Name="menu" Grid.Column="2" HorizontalAlignment="Center">Menu
+        </Label>
+        <Button x:Name="Sort" Grid.Column="2" Width="100" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,30,0,0" Background="Bisque" Click="Sort_Click">Filtrowanie
+        </Button>
+        <Button x:Name="Wyjscie" Grid.Column="2" Width="100" HorizontalAlignment="Right" Height="20" VerticalAlignment="Top" Margin="0,30,105,0" Click="Wyjscie_Click">Wyjscie
+        </Button>
+        <Button x:Name="dodajrekord" Grid.Column="2" Width="100" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Background="Chocolate" Click="dodajrekord_Click">Dodaj Produkt
+        </Button >
+        <Button x:Name="dodajkat" Grid.Column="2" Width="100" Height="20" VerticalAlignment="Top" Margin="0,30,200,0" Background="Fuchsia"  Click="dodajkat_Click">Dodaj Kategorie
+        </Button>
+        <Button x:Name="usunpro" Grid.Column="2" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,5,0" Background="Coral" Click="usunprod_Click">Usuń Produkt
+        </Button>
+        <TextBox x:Name="nazwa_produktu"  Width="100" Height="40" Background="Chocolate" Margin="200,56,200,343" TextAlignment="Center" Grid.Column="2"  >Wpisz produkt
+        </TextBox>
+        <TextBox x:Name="kategoria_nazwa" Width="100" Height="40" Background="Fuchsia" Margin="100,56,300,343" TextAlignment="Center" Grid.Column="2">Wpisz kategorie
+        </TextBox>
+        <TextBox Text="{Binding ElementName=doproduktow , Path=SelectedItem.Name}"  x:Name="edycja" Width="100" Height="40" Background="Azure" Margin="395,189,5,210" TextAlignment="Center" Grid.Column="2">
+        </TextBox>
+        <TextBox Text="{Binding ElementName=dopoladrugiego , Path=SelectedItem.Name}"  x:Name="edycja2" Width="100" Height="40" Background="Azure" Margin="395,119,5,280" TextAlignment="Center" Grid.Column="2">
+        </TextBox>
+        <Button x:Name="edycjaprod" Grid.Column="2" Width="100" Height="20" VerticalAlignment="Top" Margin="395,164,5,0" Background="Coral" Click="edit_Click">Zapisz produkt
+        </Button>
+        <Button x:Name="edycjakat" Grid.Column="2" Width="100" Height="20" VerticalAlignment="Top" Margin="395,94,5,0" Background="Coral" Click="editkat_Click">Zapisz kategorie
+        </Button>
+
+        <Button x:Name="usunkat" Grid.Column="2" Width="100" Height="20" VerticalAlignment="Top" Margin="395,50,5,0" Background="Coral" Click="usun2_Click">Usuń kategorie
+        </Button>
+
+
+
+    </Grid>
+</Window>
